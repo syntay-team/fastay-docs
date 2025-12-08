@@ -53,8 +53,8 @@ const config: Config = {
       title: 'Fastay.js',
       logo: {
         alt: 'Fastay Logo',
-        src: 'img/fastay-logo.png',
-        srcDark: 'img/fastay-logo.png'
+        src: 'img/favicon.ico',
+        srcDark: 'img/favicon.ico'
       },
       items: [
         {
@@ -121,7 +121,32 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['bash', 'json', 'typescript']
-    }
+    },
+
+    announcementBar: {
+      id: 'star_us',
+      content:
+        '⭐ If you like Fastay, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/syntay-team/fastay">GitHub</a>! ⭐',
+      backgroundColor: '#10b981',
+      textColor: '#ffffff',
+      isCloseable: true
+    },
+    metadata: [
+      {
+        name: 'keywords',
+        content: 'backend, framework, typescript, nodejs, api, express, fastay'
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content: 'Fastay - The Modern Backend Framework'
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Build powerful APIs with TypeScript, file-based routing, and zero configuration.'
+      }
+    ]
   } satisfies Preset.ThemeConfig
 };
 

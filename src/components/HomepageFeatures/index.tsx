@@ -1,56 +1,100 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: ReactNode;
+  gradient: string;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'File-Based Routing',
+    icon: '📁',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Organize routes as files. Each <code>route.ts</code> becomes an endpoint.
+        No configuration, no decorators, just clean file structure.
       </>
     ),
+    gradient: 'linear-gradient(135deg, #10b981, #0ea5e9)',
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Auto-Discovery',
+    icon: '🔍',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Fastay automatically discovers routes and middlewares. Just add files
+        to the right directories and they're instantly available.
       </>
     ),
+    gradient: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'TypeScript First',
+    icon: '📘',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Built with TypeScript from the ground up. Full type safety, IntelliSense,
+        and modern JavaScript features out of the box.
       </>
     ),
+    gradient: 'linear-gradient(135deg, #0ea5e9, #10b981)',
+  },
+  {
+    title: 'Express Power',
+    icon: '⚡',
+    description: (
+      <>
+        Full access to Express.js ecosystem. Use any Express middleware,
+        package, or pattern while enjoying Fastay's productivity boost.
+      </>
+    ),
+    gradient: 'linear-gradient(135deg, #f59e0b, #ec4899)',
+  },
+  {
+    title: 'Zero Config',
+    icon: '🚀',
+    description: (
+      <>
+        Start coding immediately. No complex configuration files.
+        Sensible defaults that you can override when needed.
+      </>
+    ),
+    gradient: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
+  },
+  {
+    title: 'Production Ready',
+    icon: '🛡️',
+    description: (
+      <>
+        Built-in security, error handling, CORS, and performance optimizations.
+        Deploy with confidence to any environment.
+      </>
+    ),
+    gradient: 'linear-gradient(135deg, #10b981, #8b5cf6)',
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, icon, description, gradient }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+    <div className={clsx('col col--4', styles.featureCol)}>
+      <div className={styles.featureCard}>
+        <div 
+          className={styles.featureIconContainer}
+          style={{ background: gradient }}
+        >
+          <span className={styles.featureIcon}>{icon}</span>
+        </div>
+        <div className={styles.featureContent}>
+          <Heading as="h3" className={styles.featureTitle}>
+            {title}
+          </Heading>
+          <div className={styles.featureDescription}>{description}</div>
+        </div>
       </div>
     </div>
   );
@@ -60,6 +104,14 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
+        <div className={styles.featuresHeader}>
+          <Heading as="h2" className={styles.featuresTitle}>
+            Why Choose Fastay?
+          </Heading>
+          <p className={styles.featuresSubtitle}>
+            Experience the perfect blend of simplicity and power
+          </p>
+        </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
