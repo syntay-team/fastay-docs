@@ -18,16 +18,14 @@ function HomepageHeader() {
   const [cursorVisible, setCursorVisible] = useState(true);
 
   const codeExample = `
-  // src/api/users/route.ts
+// src/api/users/[id].ts
 import { Request } from '@syntay/fastay';
 
-// GET /api/users
-export async function GET() {
+export async function GET(req: Request) {
+  const { id } = req.params;
+
   return {
-    users: [
-      { id: 1, name: 'John' },
-      { id: 2, name: 'Jane' }
-    ]
+    user: { id, name: 'John Doe' }
   };
 }
   `;
