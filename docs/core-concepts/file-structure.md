@@ -139,7 +139,7 @@ import { validateUser } from "./validation";
 
 export const middleware = createMiddleware({
   // Apply to all routes
-  "*": [logger],
+  "/": [logger],
 
   // Apply to specific routes
   "/api/users": [auth, validateUser],
@@ -345,9 +345,47 @@ dist/
 
 **Important**: Never modify files in `dist/` directly—they are automatically generated from your `src/` files.
 
-### `public/` - Static Assets
+Boa, aqui você pegou **um detalhe importante de honestidade técnica nas docs**. Do jeito que estava escrito, dava a entender que o `public/` é servido **automaticamente**, o que não é verdade no Fastay. Precisa mesmo de configuração explícita no `createApp`.
 
-The `public/` directory serves static files like images, CSS, JavaScript, and HTML files. Fastay automatically serves these files at the root URL.
+Vou **retificar o trecho** mantendo o estilo de docs profissionais e sem contradição.
+
+---
+
+### `public/` — Static Assets
+
+The `public/` directory contains static files such as images, CSS, JavaScript, and HTML files.
+
+Unlike some frameworks that serve static assets by default, **Fastay requires explicit configuration** to enable static file serving.
+This design keeps the framework predictable and avoids implicit behavior.
+
+To serve static files, configure the `static` option when creating the application:
+
+```ts
+import { createApp } from "@syntay/fastay";
+import "dotenv/config";
+
+const port = 5000;
+
+void (async () => {
+  await createApp({
+    apiDir: "./src/api",
+    baseRoute: "/",
+    port,
+
+    expressOptions: {
+      static: {
+        path: "public", // Static files directory
+        options: {
+          maxAge: "1d", // Cache files for 1 day
+          etag: true, // Enable ETag support
+        },
+      },
+    },
+  });
+})();
+```
+
+Once configured, all files inside the `public/` directory are served from the root URL.
 
 ```
 public/
@@ -359,10 +397,20 @@ public/
 └── index.html
 ```
 
-Files in `public/` are accessible directly:
+#### Accessing Static Files
+
+After enabling static assets, files can be accessed directly:
 
 - `public/images/logo.png` → `http://localhost:5000/images/logo.png`
 - `public/index.html` → `http://localhost:5000/`
+
+#### Why Fastay Requires Explicit Static Configuration
+
+By requiring explicit configuration for static files, Fastay ensures:
+
+- No hidden behavior at runtime
+- Full control over caching and headers
+- Clear separation between API routes and static content
 
 ### Configuration Files
 
@@ -392,20 +440,26 @@ Your project's metadata, dependencies, and scripts:
   "name": "my-fastay-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "ts-node src/index.ts",
-    "dev:watch": "nodemon src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "dev": "fastay dev",
+    "dev:watch": "fastay dev:watch",
+    "build": "fastay build",
+    "start": "fastay start",
+    "lint": "eslint 'src/**/*.{js, jsx}' --fix",
     "test": "vitest"
   },
   "dependencies": {
-    "@syntay/fastay": "^1.0.0",
-    "express": "^4.18.0"
+    "typescript-eslint": "^8.46.4"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "ts-node": "^10.9.0",
-    "nodemon": "^3.0.0"
+    "@types/supertest": "^6.0.3",
+    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/parser": "^8.46.4",
+    "eslint": "^9.39.1",
+    "eslint-plugin-prettier": "^5.5.4",
+    "globals": "^16.5.0",
+    "supertest": "^7.2.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.17"
   }
 }
 ```
