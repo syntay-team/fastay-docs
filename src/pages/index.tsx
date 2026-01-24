@@ -1,20 +1,21 @@
-import type { ReactNode } from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import CodeExample from '@site/src/components/CodeExample';
-import { useEffect, useState } from 'react';
-import styles from './index.module.css';
+import type { ReactNode } from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import Heading from "@theme/Heading";
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import CodeExample from "@site/src/components/CodeExample";
+import CodeBlock from "@theme/CodeBlock";
+import { useEffect, useState } from "react";
+import styles from "./index.module.css";
 
 // Import icons (you'll need to add these to your static folder)
 // or use React Icons if you prefer
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
-  const [typedText, setTypedText] = useState('');
+  const [typedText, setTypedText] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
 
   const codeExample = `
@@ -30,12 +31,15 @@ export async function GET(req: Request) {
 }
   `;
 
+  const codeStart = `npx fastay create-app my-api
+  `;
+
   const texts = [
-    'file-based routing',
-    'auto-discovered APIs',
-    'zero-config TypeScript',
-    'intentional simplicity',
-    'lightning fast setup'
+    "file-based routing",
+    "auto-discovered APIs",
+    "zero-config TypeScript",
+    "intentional simplicity",
+    "lightning fast setup",
   ];
 
   useEffect(() => {
@@ -70,7 +74,7 @@ export async function GET(req: Request) {
     };
 
     const cursorInterval = setInterval(() => {
-      setCursorVisible(v => !v);
+      setCursorVisible((v) => !v);
     }, 500);
 
     type();
@@ -81,7 +85,7 @@ export async function GET(req: Request) {
   }, []);
 
   return (
-    <header className={clsx('hero', styles.heroBanner)}>
+    <header className={clsx("hero", styles.heroBanner)}>
       <div className="container">
         <div className={styles.heroContent}>
           <div className={styles.badgeContainer}>
@@ -90,13 +94,13 @@ export async function GET(req: Request) {
             <span className={styles.badge}>Production Ready</span>
           </div>
 
-          <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+          <Heading as="h1" className={clsx("hero__title", styles.heroTitle)}>
             The <span className={styles.highlight}>Modern</span> Backend
             Framework
           </Heading>
 
-          <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
-            Build APIs with{' '}
+          <p className={clsx("hero__subtitle", styles.heroSubtitle)}>
+            Build APIs with{" "}
             <span className={styles.typedText}>
               {typedText}
               <span
@@ -113,26 +117,39 @@ export async function GET(req: Request) {
             full-featured APIs in minutes, not hours.
           </div>
 
+          <div
+            style={{
+              margin: "auto",
+              marginBottom: "20px",
+              display: "inline-flex",
+            }}
+          >
+            <CodeBlock
+              showLineNumbers={false}
+              language="bash"
+            >{`npx fastay create-app my-api`}</CodeBlock>
+          </div>
+
           <div className={styles.buttonGroup}>
             <Link
-              className={clsx('button button--lg', styles.getStartedButton)}
+              className={clsx("button button--lg", styles.getStartedButton)}
               to="/introduction"
             >
               Get Started →
             </Link>
-            <Link
+            {/* <Link
               className={clsx(
-                'button button--lg button--outline',
+                "button button--lg button--outline",
                 styles.demoButton
               )}
               to="/docs/examples/quick-start"
             >
               View Examples
-            </Link>
+            </Link> */}
             <a
               href="https://github.com/syntay-team/fastay"
               className={clsx(
-                'button button--lg button--secondary',
+                "button button--lg button--secondary",
                 styles.githubButton
               )}
               target="_blank"
@@ -203,11 +220,11 @@ function ComparisonSection() {
               <span className={styles.frameworkTag}>Too Minimal</span>
             </div>
             <ul className={styles.frameworkList}>
-              <li className={styles.negative}>❌ Manual route registration</li>
-              <li className={styles.negative}>❌ No built-in structure</li>
-              <li className={styles.negative}>❌ Middleware complexity</li>
-              <li className={styles.positive}>✅ Maximum flexibility</li>
-              <li className={styles.positive}>✅ Lightweight</li>
+              <li className={styles.negative}>✗ Manual route registration</li>
+              <li className={styles.negative}>✗ No built-in structure</li>
+              <li className={styles.negative}>✗ Middleware complexity</li>
+              <li className={styles.positive}>✓ Maximum flexibility</li>
+              <li className={styles.positive}>✓ Lightweight</li>
             </ul>
           </div>
 
@@ -218,11 +235,11 @@ function ComparisonSection() {
               <div className={styles.connectorRight}></div>
             </div>
             <ul className={styles.fastayList}>
-              <li className={styles.positive}>✅ Auto-discovered routes</li>
-              <li className={styles.positive}>✅ Smart conventions</li>
-              <li className={styles.positive}>✅ TypeScript-first</li>
-              <li className={styles.positive}>✅ File-based structure</li>
-              <li className={styles.positive}>✅ Production ready</li>
+              <li className={styles.positive}>✓ Auto-discovered routes</li>
+              <li className={styles.positive}>✓ Smart conventions</li>
+              <li className={styles.positive}>✓ TypeScript-first</li>
+              <li className={styles.positive}>✓ File-based structure</li>
+              <li className={styles.positive}>✓ Production ready</li>
             </ul>
           </div>
 
@@ -232,11 +249,11 @@ function ComparisonSection() {
               <span className={styles.frameworkTag}>Too Structured</span>
             </div>
             <ul className={styles.frameworkList}>
-              <li className={styles.positive}>✅ Decorator-based</li>
-              <li className={styles.positive}>✅ Dependency injection</li>
-              <li className={styles.positive}>✅ Modular architecture</li>
-              <li className={styles.negative}>❌ Steep learning curve</li>
-              <li className={styles.negative}>❌ Configuration heavy</li>
+              <li className={styles.positive}>✓ Decorator-based</li>
+              <li className={styles.positive}>✓ Dependency injection</li>
+              <li className={styles.positive}>✓ Modular architecture</li>
+              <li className={styles.negative}>✗ Steep learning curve</li>
+              <li className={styles.negative}>✗ Configuration heavy</li>
             </ul>
           </div>
         </div>
@@ -248,21 +265,21 @@ function ComparisonSection() {
 function StatsSection() {
   const stats = [
     {
-      value: '5x',
-      label: 'Faster Setup',
-      desc: 'Compared to traditional frameworks'
+      value: "5x",
+      label: "Faster Setup",
+      desc: "Compared to traditional frameworks",
     },
-    { value: '0', label: 'Config Files', desc: 'To start your first API' },
+    { value: "0", label: "Config Files", desc: "To start your first API" },
     {
-      value: '100%',
-      label: 'TypeScript',
-      desc: 'First-class TypeScript support'
+      value: "100%",
+      label: "TypeScript",
+      desc: "First-class TypeScript support",
     },
     {
-      value: 'Auto',
-      label: 'Route Discovery',
-      desc: 'No manual registration needed'
-    }
+      value: "Auto",
+      label: "Route Discovery",
+      desc: "No manual registration needed",
+    },
   ];
 
   return (
@@ -297,17 +314,17 @@ function CtaSection() {
           <div className={styles.ctaButtons}>
             <Link
               className={clsx(
-                'button button--lg button--primary',
+                "button button--lg button--primary",
                 styles.ctaButton
               )}
-              to="/docs/getting-started/installation"
+              to="/getting-started"
             >
               Start Building Now
             </Link>
             <a
               href="https://github.com/syntay-team/fastay"
               className={clsx(
-                'button button--lg button--outline',
+                "button button--lg button--outline",
                 styles.ctaButtonSecondary
               )}
               target="_blank"
