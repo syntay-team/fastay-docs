@@ -223,7 +223,6 @@ Fastay is open source and actively maintained. Join our community:
 
 - [GitHub Repository](https://github.com/syntay-team/fastay) - Report issues, suggest features, contribute code
 - [Documentation](/) - Complete API reference and guides
-- [Examples](/examples) - Practical examples and best practices
 
 ### License
 
