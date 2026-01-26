@@ -26,7 +26,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/syntay-team/fastay-docs/blob/main/docs/",
+          editUrl: "https://github.com/syntay-team/fastay-docs/blob/main/",
           routeBasePath: "/",
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
