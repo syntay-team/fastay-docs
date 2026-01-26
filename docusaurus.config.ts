@@ -18,9 +18,8 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "pt"],
+    locales: ["en"],
   },
-
   presets: [
     [
       "@docusaurus/preset-classic",
@@ -55,6 +54,16 @@ const config: Config = {
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
+    headTags: [
+      {
+        tagName: "meta",
+        attributes: {
+          name: "google",
+          content: "notranslate",
+        },
+      },
+    ],
+
     navbar: {
       title: "Fastay.js",
       logo: {
