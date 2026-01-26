@@ -105,7 +105,7 @@ my-api/
 The main application configuration happens in `src/index.ts`:
 
 ```typescript
-import { createApp } from "@fastay";
+import { createApp } from "@syntay/fastay";
 
 void (async () => {
   await createApp({
@@ -215,7 +215,7 @@ Open the file and add the basic HTTP methods:
 
 ```typescript
 // src/api/hello/route.ts
-import { Request } from '@fastay';
+import { Request } from '@syntay/fastay';
 
 // GET /api/hello
 export async function GET() {
@@ -302,7 +302,7 @@ mkdir -p src/api/users/[id]  # /api/users/:id
 
 ```typescript
 // src/api/users/[id]/route.ts
-import { Request } from "@fastay";
+import { Request } from "@syntay/fastay";
 
 export async function GET(req: Request) {
   const { id } = req.params;
@@ -327,7 +327,7 @@ mkdir -p src/api/users/[id]/posts
 
 ```typescript
 // src/api/users/[id]/posts/route.ts
-import { Request } from "@fastay";
+import { Request } from "@syntay/fastay";
 
 export async function GET(req: Request) {
   const { id } = req.params;
@@ -356,7 +356,7 @@ import { Next, Request, Response } from "@syntay/fastay";
 export async function logger(
   req: Request,
   _res: Response,
-  next: Next
+  next: Next,
 ): Promise<void> {
   // Log request details
   console.log("MIDDLEWARE: ", {
