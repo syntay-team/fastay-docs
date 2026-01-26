@@ -73,17 +73,14 @@ This eliminates vendor lock-in and ensures you're always in control of your stac
 #### We Believe That...
 
 1. **Frameworks should facilitate, not complicate**
-
    - Tools should solve problems, not create new ones
    - Development speed matters, but not at the cost of maintainability
 
 2. **Complexity should be added by choice, not imposed by default**
-
    - Start simple, add complexity only when needed
    - Every layer of abstraction should justify its existence
 
 3. **Developers deserve tools that respect their time and intelligence**
-
    - No "magic" that's hard to debug
    - Transparent behavior and clear error messages
    - Excellent documentation and helpful error messages
@@ -163,7 +160,7 @@ Total Flexibility – FASTAY – Maximum Productivity
    - Internal tools and dashboards
    - Mobile app backends
    - SaaS application APIs
-2. **Quick prototypes and MVPs **
+2. **Quick prototypes and MVPs**
 
 - Hackathon projects
 - Proof-of-concepts
@@ -254,18 +251,15 @@ But everything is optional and replaceable. Use our defaults, or bring your own 
 Backend development has evolved through several phases:
 
 1. **Raw Node.js (2009-2013)**
-
    - Maximum control, maximum boilerplate
    - Every project reinvented the wheel
 
 2. **Express.js Era (2013-2018)**
-
    - Great middleware ecosystem
    - Still required significant boilerplate
    - Structure varied wildly between projects
 
 3. **Framework Proliferation (2018-2022)**
-
    - NestJS, Adonis, Hapi, Fastify
    - More structure, more complexity
    - Steep learning curves
