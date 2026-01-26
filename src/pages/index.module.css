@@ -64,9 +64,10 @@
 }
 
 .heroTitle {
-  font-size: 4.5rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.heroTitle .highlight {
   background: linear-gradient(
     90deg,
     #10b981 0%,
@@ -75,18 +76,13 @@
     #ec4899 100%
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.1;
-}
-
-.highlight {
-  position: relative;
-  display: inline-block;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .highlight::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -214,7 +210,7 @@
 
 .codeBlock {
   margin: 0;
-  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.875rem;
   line-height: 1.6;
   text-align: left;
@@ -454,7 +450,7 @@
 }
 
 .ctaSection::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
