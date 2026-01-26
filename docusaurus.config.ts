@@ -7,7 +7,7 @@ const config: Config = {
   tagline: "Productivity-first backend framework for Node.js",
   favicon: "img/favicon.ico",
 
-  url: "https://fastay.dev",
+  url: "https://fastay.syntay.site",
   baseUrl: "/",
 
   organizationName: "syntay",
@@ -18,16 +18,16 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "pt"],
   },
 
   presets: [
     [
-      "classic",
+      "@docusaurus/preset-classic",
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          editUrl: "https://github.com/syntay-team/fastay/tree/main/docs/",
+          editUrl: "https://github.com/syntay-team/fastay-docs/blob/main/docs/",
           routeBasePath: "/",
           showLastUpdateTime: true,
           showLastUpdateAuthor: true,
@@ -40,7 +40,7 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: "https://github.com/syntay-team/fastay/tree/main/docs/",
+          editUrl: "https://github.com/syntay-team/fastay-docs/blob/main/blog/",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -51,7 +51,7 @@ const config: Config = {
 
   themeConfig: {
     colorMode: {
-      defaultMode: "light",
+      defaultMode: "dark",
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
@@ -124,9 +124,9 @@ const config: Config = {
       copyright: `© ${new Date().getFullYear()} Fastay.js. Released under the MIT License.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.oneLight,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ["bash", "json", "typescript"],
+      additionalLanguages: ["bash", "json", "typescript", "yaml"],
     },
 
     announcementBar: {
