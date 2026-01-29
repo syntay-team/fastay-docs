@@ -1,6 +1,19 @@
-# Website
+# Fastay Docs Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Official documentation website for the **Fastay Framework**.
+
+Website: **[https://fastay.syntay.site](https://fastay.syntay.site)**
+
+This repository contains the source code for the documentation site, built with **Docusaurus**.
+
+---
+
+## Requirements
+
+* Node.js (recommended: v20+)
+* Yarn (or npm)
+
+---
 
 ## Installation
 
@@ -8,13 +21,17 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 yarn
 ```
 
+---
+
 ## Local Development
 
 ```bash
 yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Starts a local development server and opens the site in your browser. Most changes are reflected live without restarting the server.
+
+---
 
 ## Build
 
@@ -22,7 +39,9 @@ This command starts a local development server and opens up a browser window. Mo
 yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Generates static content into the `build` directory. The output can be served using any static hosting service.
+
+---
 
 ## Deployment
 
@@ -35,7 +54,7 @@ USE_SSH=true yarn deploy
 Not using SSH:
 
 ```bash
-GIT_USER=<Your GitHub username> yarn deploy
+GIT_USER=<your-github-username> yarn deploy
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+If you are using GitHub Pages, this command builds the website and pushes it to the `gh-pages` branch.
