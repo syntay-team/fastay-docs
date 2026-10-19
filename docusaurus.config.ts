@@ -7,7 +7,7 @@ const config: Config = {
   tagline: "Productivity-first backend framework for Node.js",
   favicon: "img/favicon.ico",
 
-  url: "https://fastay.syntay.site",
+  url: "https://fastay.vercel.app",
   baseUrl: "/",
 
   organizationName: "syntay",
